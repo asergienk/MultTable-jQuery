@@ -59,12 +59,12 @@ $(function() {
   //Checks if maxCol is greater than minCol: returns true if it is or false otherwise
   $.validator.addMethod('greaterThanMinCol', function(value, element) {
     var minCol = $("#minCol").val();
-    return this.optional(element) || value > minCol;
+    return value > minCol;
   });
   //Checks if maxRow is greater than minRow: returns true if it is or false otherwise
   $.validator.addMethod('greaterThanMinRow', function(value, element) {
     var minRow = $("#minRow").val();
-    return this.optional(element) || value > minRow;
+    return value > minRow;
   });
   //Checks if inputted numbers are integers: returns true if they are or false otherwise
   $.validator.addMethod('numberIsInteger', function(value, element) {
