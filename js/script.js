@@ -1,12 +1,3 @@
-// Link to this assignment: https://asergienk.github.io/MultiplicationTable/
-// GitHub repository link: https://github.com/asergienk/MultiplicationTable
-// 91.61 Assignment: Multiplication Table with JavaScript
-// Anna Sergienko, UMass Lowell Computer Science, anna_sergienko@student.uml.edu
-// Copyright (c) 2020 by Anna Sergienko. All rights reserved. May be
-// freely copied or excerpted for educational purposes with credit to the author.
-// updated by AS on October 28, 2020 at 9:30 PM
-
-
 //Function to generate a multiplication table based on user's range input.
 function generateTable() {
   //getting input values
@@ -16,43 +7,6 @@ function generateTable() {
   var maxRow = parseInt(document.getElementById("maxRow").value);
   var error = document.getElementById("message");
 
-  //clearMessage();
-
-  //swapping values if min>max
-  /*
-  if(minCol>maxCol && minRow>maxRow)
-  {
-    let temp = maxCol;
-    maxCol = minCol;
-    minCol = temp;
-
-    let temp2 = maxRow;
-    maxRow = minRow;
-    minRow = temp2;
-
-    var node = document.createTextNode("Min and Max Column AND Row Values are swapped.");
-    printMessage(node);
-  }
- else{
-  if(minCol>maxCol)
-  {
-    let temp = maxCol;
-    maxCol = minCol;
-    minCol = temp;
-    var node = document.createTextNode("Min and Max Column Values are swapped.");
-    printMessage(node);
-  }
-  if(minRow>maxRow)
-  {
-    let temp = maxRow;
-    maxRow = minRow;
-    minRow = temp;
-    var node = document.createTextNode("Min and Max Row Values are swapped.");
-    printMessage(node);
-  }
-}
-
-*/
 
   var table = document.getElementById("multTable");
   var result = "";
@@ -98,22 +52,3 @@ function generateTable() {
 
   return false;
 }
-
-
-/*
-//Function to print a message if min and max values were swapped.
-function printMessage(message){
-   var node = document.getElementById("message");
-   var newP = document.createElement("P");
-   clearMessage();
-   newP.appendChild(message);
-   node.appendChild(newP);
-}
-//Function to clear a message.
-function clearMessage(){
-    var message = document.getElementById("message");
-    while(message.firstChild){
-        message.removeChild(message.firstChild);
-    }
-}
-*/
