@@ -56,15 +56,9 @@ function generateTable() {
 //Function to validate user's input
 $(function() {
   //Methods that I added for validation
-  //Checks if maxCol is greater than minCol: returns true if it is or false otherwise
-  $.validator.addMethod('greaterThanMinCol', function(value, element) {
-    var minCol = $("#minCol").val();
-    return value > minCol;
-  });
-  //Checks if maxRow is greater than minRow: returns true if it is or false otherwise
-  $.validator.addMethod('greaterThanMinRow', function(value, element) {
-    var minRow = $("#minRow").val();
-    return value > minRow;
+  //Checks if maxCol is greater than minCol and maxRow is greater than minRow: returns true if it is or false otherwise
+  $.validator.addMethod('greaterThan', function(value, element, params) {
+    return this.optional(element) || parseInt(value) >= parseInt($(params).val());
   });
   //Checks if inputted numbers are integers: returns true if they are or false otherwise
   $.validator.addMethod('numberIsInteger', function(value, element) {
@@ -90,7 +84,7 @@ $(function() {
         number: true,
         min: -50,
         max: 50,
-        greaterThanMinCol: true,
+        greaterThan: "#minCol",
         numberIsInteger: true
       },
       minRow: {
@@ -105,7 +99,7 @@ $(function() {
         number: true,
         min: -50,
         max: 50,
-        greaterThanMinRow: true,
+        greaterThan: "#minRow",
         numberIsInteger: true
       }
     },
@@ -122,7 +116,7 @@ $(function() {
         number: 'Please enter a number.',
         min: 'Minimun value is -50.',
         max: 'Maximum value is 50.',
-        greaterThanMinCol: 'This value should be greater than Minimum Column Value.',
+        greaterThan: 'This value should be greater than Minimum Column Value.',
         numberIsInteger: 'Please enter an integer.'
       },
       minRow: {
@@ -137,7 +131,7 @@ $(function() {
         number: 'Please enter a number.',
         min: 'Minimun value is -50.',
         max: 'Maximum value is 50.',
-        greaterThanMinRow: 'This value should be greater than Minimum Row Value.',
+        greaterThan: 'This value should be greater than Minimum Row Value.',
         numberIsInteger: 'Please enter an integer.'
       }
     },//end messages
