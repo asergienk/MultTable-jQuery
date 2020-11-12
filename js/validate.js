@@ -71,6 +71,7 @@ $(function() {
   $("#inputForm").submit(function(e) {
     e.preventDefault();
   }).validate({
+    errorClass: 'error',
     rules: {
       minCol: {
         required: true,
@@ -104,27 +105,27 @@ $(function() {
     messages: {
       minCol: {
         required: 'Please enter a Minimum Column Value.',
-        number: 'Please enter a decimal number.',
+        number: 'Please enter a whole number.',
         min: 'Minimun value is -50.',
         max: 'Maximum value is 50.'
       },
       maxCol: {
         required: 'Please enter a Maximum Column Value.',
-        number: 'Please enter a decimal number.',
+        number: 'Please enter a whole number.',
         min: 'Minimun value is -50.',
         max: 'Maximum value is 50.',
         greaterThanMinCol: 'This value should be greater than Minimum Column Value.'
       },
       minRow: {
         required: 'Please enter a Minimum Row Value.',
-        number: 'Please enter a decimal number.',
+        number: 'Please enter a whole number.',
         min: 'Minimun value is -50.',
         max: 'Maximum value is 50.',
         //numberIsInteger: 'Please enter an integer.'
       },
       maxRow: {
         required: 'Please enter a Minimum Column Value.',
-        number: 'Please enter a decimal number.',
+        number: 'Please enter a whole number.',
         min: 'Minimun value is -50.',
         max: 'Maximum value is 50.',
         greaterThanMinRow: 'This value should be greater than Minimum Row Value.'
