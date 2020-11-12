@@ -7,7 +7,10 @@ function generateTable() {
   var maxRow = parseInt(document.getElementById("maxRow").value);
   var error = document.getElementById("message");
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0141a11f3b263b238065c2b63fc55745e36f3137
   var table = document.getElementById("multTable");
   var result = "";
   //creating a multTable
