@@ -53,21 +53,26 @@ function generateTable() {
   return false;
 }
 
+//Function to validate user's input
 $(function() {
-
+  //Methods that I added for validation
+  //Checks if maxCol is greater than minCol: returns true if it is or false otherwise
   $.validator.addMethod('greaterThanMinCol', function(value, element) {
     var minCol = $("#minCol").val();
     return this.optional(element) || value > minCol;
   });
+  //Checks if maxRow is greater than minRow: returns true if it is or false otherwise
   $.validator.addMethod('greaterThanMinRow', function(value, element) {
     var minRow = $("#minRow").val();
     return this.optional(element) || value > minRow;
   });
-  /*
+  //Checks if inputted numbers are integers: returns true if they are or false otherwise
   $.validator.addMethod('numberIsInteger', function(value, element) {
-    return this.optional(element) || Number.isInteger(value);
+      if(Math.floor(value) == value && $.isNumeric(value))
+        return true;
+      return false;
   });
-*/
+//Prevent default submission of the form
   $("#inputForm").submit(function(e) {
     e.preventDefault();
   }).validate({
@@ -77,60 +82,66 @@ $(function() {
         required: true,
         number: true,
         min: -50,
-        max: 50
+        max: 50,
+        numberIsInteger: true
       },
       maxCol: {
         required: true,
         number: true,
         min: -50,
         max: 50,
-        greaterThanMinCol: true
+        greaterThanMinCol: true,
+        numberIsInteger: true
       },
       minRow: {
         required: true,
         number: true,
         min: -50,
         max: 50,
-        //numberIsInteger: true
+        numberIsInteger: true
       },
       maxRow: {
         required: true,
         number: true,
         min: -50,
         max: 50,
-        greaterThanMinRow: true
-
+        greaterThanMinRow: true,
+        numberIsInteger: true
       }
     },
     messages: {
       minCol: {
         required: 'Please enter a Minimum Column Value.',
-        number: 'Please enter a whole number.',
+        number: 'Please enter a number.',
         min: 'Minimun value is -50.',
-        max: 'Maximum value is 50.'
+        max: 'Maximum value is 50.',
+        numberIsInteger: 'Please enter an integer.'
       },
       maxCol: {
         required: 'Please enter a Maximum Column Value.',
-        number: 'Please enter a whole number.',
+        number: 'Please enter a number.',
         min: 'Minimun value is -50.',
         max: 'Maximum value is 50.',
-        greaterThanMinCol: 'This value should be greater than Minimum Column Value.'
+        greaterThanMinCol: 'This value should be greater than Minimum Column Value.',
+        numberIsInteger: 'Please enter an integer.'
       },
       minRow: {
         required: 'Please enter a Minimum Row Value.',
-        number: 'Please enter a whole number.',
+        number: 'Please enter a number.',
         min: 'Minimun value is -50.',
         max: 'Maximum value is 50.',
-        //numberIsInteger: 'Please enter an integer.'
+        numberIsInteger: 'Please enter an integer.'
       },
       maxRow: {
         required: 'Please enter a Minimum Column Value.',
-        number: 'Please enter a whole number.',
+        number: 'Please enter a number.',
         min: 'Minimun value is -50.',
         max: 'Maximum value is 50.',
-        greaterThanMinRow: 'This value should be greater than Minimum Row Value.'
+        greaterThanMinRow: 'This value should be greater than Minimum Row Value.',
+        numberIsInteger: 'Please enter an integer.'
       }
     },//end messages
+    //Only submits the form if the input is valid
     submitHandler: function(form) {
       generateTable();
       return false;
