@@ -83,3 +83,7 @@ It is centered and red.  */
   padding-left: 15px;
   text-align: center;
 }
+/* Change color for jQuery messages  */
+.error {
+  color: red;
+}
